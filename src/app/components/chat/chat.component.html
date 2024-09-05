@@ -1,0 +1,28 @@
+<div class="chat-container">
+    <div class="model-info">
+        <span>Modelo atual: {{ currentModel }}</span>
+        <div *ngIf="currentModel === 'flash' && cooldownTime > 0" class="cooldown-timer">
+          <mat-spinner [diameter]="20"></mat-spinner>
+          <span>Próxima resposta Pro em: {{ cooldownTime / 1000 | number:'1.0-0' }}s</span>
+        </div>
+      </div>
+  <div class="chat-header">
+    <button class="back-button" mat-icon-button (click)="goBackToSelect()" matTooltip="Voltar para seleção de agente">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <img class="character-image" [src]="character.image" [alt]="character.name">
+    <h2 class="character-name">{{ character.name }}</h2>
+    <button class="clear-button" (click)="clearChatHistory()" matTooltip="Apagar histórico">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+  <div class="chat-messages">
+    <div *ngFor="let message of messages" [ngClass]="{'user-message': message.sender === 'User', 'ai-message': message.sender !== 'User'}">
+      <strong>{{ message.sender }}:</strong> {{ message.text }}
+    </div>
+  </div>
+  <div class="chat-input">
+    <input [(ngModel)]="userInput" (keyup.enter)="sendMessage()" placeholder="Digite sua mensagem...">
+    <button mat-raised-button color="primary" (click)="sendMessage()" class="send-button">Enviar</button>
+  </div>
+</div>

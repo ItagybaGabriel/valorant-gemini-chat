@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box;
+}
+html, body { height: 100%; }
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+  background-image: linear-gradient(rgba(0, 0, 0, 0.504), rgba(0, 0, 0, 1)), url('assets/valorant.png'); 
+  background-size: cover; 
+  background-position: center center; 
+  background-repeat: no-repeat; 
+  position: relative;
+}
+
+@font-face {
+  font-family: 'Valorant';
+  src: url('assets/font/Valorant Font.ttf') format('truetype');
+}
+

@@ -1,0 +1,9 @@
+<div class="character-select">
+  <h2>Escolha um agente</h2>
+  <div class="character-list">
+    <div *ngFor="let character of characters" class="character-item" (click)="selectCharacter(character)">
+      <img [src]="character.image" [alt]="character.name">
+      <span>{{ character.name }}</span>
+    </div>
+  </div>
+</div>
